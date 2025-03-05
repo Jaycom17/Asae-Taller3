@@ -2,7 +2,6 @@ package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models;
 
 import java.sql.Date;
 import java.util.ArrayList;
-
 import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.IEstado;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +18,8 @@ public class FormatoEntity {
     private String objetivoGeneral;
     private String directorDelTrabajo;
     private ArrayList<String> objetivos;
+    private String primerEstudiante;
+
+    public FormatoEntity() {
+    }
 }
