@@ -6,8 +6,6 @@ public class EstadoPorCorregir implements IEstado {
 
     @Override
     public Resultado cambiarEnEvaluacion(FormatoEntity formato) {
-        EstadoEnEvaluacion estado = new EstadoEnEvaluacion();
-        formato.setEstado(estado);
         return new Resultado(true, "Se ha cambiado a en evaluación");
     }
 

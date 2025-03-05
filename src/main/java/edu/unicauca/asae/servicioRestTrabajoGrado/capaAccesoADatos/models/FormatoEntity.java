@@ -1,19 +1,19 @@
 package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
+
+import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.EstadoEnFormulacion;
 import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.IEstado;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 public class FormatoEntity {
     private Integer id;
     private Date fecha;
-    private IEstado estado;
+    private EnumEstado datoEstado;
     private String titulo;
     private String objetivoGeneral;
     private String directorDelTrabajo;
@@ -21,5 +21,16 @@ public class FormatoEntity {
     private String primerEstudiante;
 
     public FormatoEntity() {
+    }
+
+    public FormatoEntity(Integer id, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante) {
+        this.id = id;
+        this.datoEstado = EnumEstado.EN_FORMULACION;
+        this.fecha = new Date();
+        this.titulo = titulo;
+        this.objetivoGeneral = objetivoGeneral;
+        this.directorDelTrabajo = directorDelTrabajo;
+        this.objetivos = objetivos;
+        this.primerEstudiante = primerEstudiante;
     }
 }

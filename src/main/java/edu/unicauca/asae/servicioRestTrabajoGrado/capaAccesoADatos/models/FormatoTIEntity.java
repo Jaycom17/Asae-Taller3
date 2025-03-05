@@ -1,9 +1,7 @@
 package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models;
 
-import java.sql.Date;
 import java.util.ArrayList;
 
-import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.IEstado;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +14,8 @@ public class FormatoTIEntity extends FormatoEntity {
     public FormatoTIEntity() {
     }
 
-    public FormatoTIEntity(Integer id, Date fecha, IEstado estado, String titulo, String objetivoGeneral, String directorDelTrabajo, String primerEstudiante, ArrayList<String> objetivos, String segundoEstudiante) {
-        super(id, fecha, estado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
+    public FormatoTIEntity(Integer id, String titulo, String objetivoGeneral, String directorDelTrabajo, String primerEstudiante, ArrayList<String> objetivos, String segundoEstudiante) {
+        super(id, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
         this.segundoEstudiante = segundoEstudiante;
     }
     
