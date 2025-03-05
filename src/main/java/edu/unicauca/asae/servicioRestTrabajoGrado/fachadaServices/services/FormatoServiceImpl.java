@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.FormatoEntity;
+import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.FormatoPPEntity;
 import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.repositories.FormatoRepository;
 import edu.unicauca.asae.servicioRestTrabajoGrado.fachadaServices.DTO.Peticion.FormatoDTOPeticion;
 import edu.unicauca.asae.servicioRestTrabajoGrado.fachadaServices.DTO.Respuesta.FormatoDTORespuesta;
@@ -71,8 +72,17 @@ public class FormatoServiceImpl implements IFormatoService {
 
         if (formatoEntityRes.isPresent()) {
             FormatoEntity formatoEntity = formatoEntityRes.get();
-            formatoEntity = this.modelMapper.map(formato, FormatoEntity.class);
-            formatoActualizado = this.formatoRepository.update(id, formatoEntity).get();
+
+            if(formatoEntity instanceof FormatoPPEntity){
+                // updateFormatoEntity((FormatoEntity) formatoEntity, formato);
+                // formatoActualizado = this.formatoRepository.update(id, formatoEntity).get();
+            }//TODO: corregir todo
+
+            formatoEntity.setTitulo(formato.getTitulo());
+            formatoEntity.setObjetivoGeneral(formato.getObjetivoGeneral());
+            formatoEntity.setDirectorDelTrabajo(formato.getDirectorDelTrabajo());
+            formatoEntity.setObjetivos(formato.getObjetivos());
+            formatoEntity.setPrimerEstudiante(formato.getPrimerEstudiante());
         }
     }
 

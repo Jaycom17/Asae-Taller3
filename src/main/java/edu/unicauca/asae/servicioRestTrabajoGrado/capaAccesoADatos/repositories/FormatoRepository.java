@@ -46,6 +46,8 @@ public class FormatoRepository {
 		return respuesta;
     }
 
+    //TODO: Implementar el método changeState
+
     private void cargarFormatos(){
         mapaFormatos.put(1, new FormatoPPEntity(1, "un trabajo bien melo", "un objetivo bien melo", "un director bien melo", "un estudiante bien melo", null, "un asesor bien melo", "una carta bien mela"));
     }
