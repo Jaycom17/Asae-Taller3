@@ -1,5 +1,5 @@
-package edu.unicauca.asae.servicioRestTrabajoGrado.fachadaServices.DTO;
+package edu.unicauca.asae.servicioRestTrabajoGrado.fachadaServices.DTO.Peticion;
 
-public class FormatoTIDTO {
+public class FormatoTIDTOPeticion {
     
 }

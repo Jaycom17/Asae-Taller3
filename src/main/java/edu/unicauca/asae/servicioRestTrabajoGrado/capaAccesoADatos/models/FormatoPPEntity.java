@@ -1,5 +1,8 @@
 package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models;
 
-public class FormatoPPEntity {
-    
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
+public class FormatoPPEntity extends FormatoEntity {
+
 }
