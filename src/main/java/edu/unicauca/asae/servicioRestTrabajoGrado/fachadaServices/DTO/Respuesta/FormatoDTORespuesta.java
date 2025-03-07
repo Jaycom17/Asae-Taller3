@@ -14,7 +14,7 @@ import lombok.Setter;
 public class FormatoDTORespuesta {
     private Integer id;
     private Date fecha;
-    private EnumEstado datoEstado;
+    private EnumEstado estado;
     private String titulo;
     private String objetivoGeneral;
     private String directorDelTrabajo;

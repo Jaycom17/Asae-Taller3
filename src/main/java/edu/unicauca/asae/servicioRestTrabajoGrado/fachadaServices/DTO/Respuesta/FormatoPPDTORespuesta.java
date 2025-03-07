@@ -16,8 +16,8 @@ public class FormatoPPDTORespuesta extends FormatoDTORespuesta {
     public FormatoPPDTORespuesta() {
     }
 
-    public FormatoPPDTORespuesta(Integer id, Date fecha, EnumEstado datoEstado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String asesor, String cartaAceptacion) {
-        super(id, fecha, datoEstado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
+    public FormatoPPDTORespuesta(Integer id, Date fecha, EnumEstado estado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String asesor, String cartaAceptacion) {
+        super(id, fecha, estado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
         this.asesor = asesor;
         this.cartaAceptacion = cartaAceptacion;
     }

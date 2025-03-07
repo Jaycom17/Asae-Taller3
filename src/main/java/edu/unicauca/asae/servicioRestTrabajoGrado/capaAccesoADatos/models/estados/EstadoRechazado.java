@@ -23,5 +23,10 @@ public class EstadoRechazado implements IEstado {
     public Resultado cambiarRechazado(FormatoEntity formato) {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a rechazado");
     }
+
+    @Override
+    public Resultado cambiarEnFormulacion(FormatoEntity formato) {
+        return new Resultado(false, "Un formato A rechazado no puede cambiar a en formulación");
+    }
     
 }

@@ -13,7 +13,7 @@ import lombok.Setter;
 public class FormatoEntity {
     private Integer id;
     private Date fecha;
-    private EnumEstado datoEstado;
+    private EnumEstado estado;
     private String titulo;
     private String objetivoGeneral;
     private String directorDelTrabajo;
@@ -25,7 +25,7 @@ public class FormatoEntity {
 
     public FormatoEntity(Integer id, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante) {
         this.id = id;
-        this.datoEstado = EnumEstado.EN_FORMULACION;
+        this.estado = EnumEstado.EN_FORMULACION;
         this.fecha = new Date();
         this.titulo = titulo;
         this.objetivoGeneral = objetivoGeneral;

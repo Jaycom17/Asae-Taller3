@@ -15,8 +15,8 @@ public class FormatoTIDTORespuesta extends FormatoDTORespuesta {
     public FormatoTIDTORespuesta() {
     }
 
-    public FormatoTIDTORespuesta(Integer id, Date fecha, EnumEstado datoEstado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String segundoEstudiante) {
-        super(id, fecha, datoEstado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
+    public FormatoTIDTORespuesta(Integer id, Date fecha, EnumEstado estado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String segundoEstudiante) {
+        super(id, fecha, estado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
         this.segundoEstudiante = segundoEstudiante;
     }
 }
