@@ -5,27 +5,27 @@ import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.Format
 public class EstadoRechazado implements IEstado {
 
     @Override
-    public Resultado cambiarEnEvaluacion(FormatoEntity formato) {
+    public Resultado cambiarEnEvaluacion() {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a en evaluación");
     }
 
     @Override
-    public Resultado cambiarPorCorregir(FormatoEntity formato) {
+    public Resultado cambiarPorCorregir() {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a por corregir");
     }
 
     @Override
-    public Resultado cambiarAprobado(FormatoEntity formato) {
+    public Resultado cambiarAprobado() {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a aprobado");
     }
 
     @Override
-    public Resultado cambiarRechazado(FormatoEntity formato) {
+    public Resultado cambiarRechazado() {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a rechazado");
     }
 
     @Override
-    public Resultado cambiarEnFormulacion(FormatoEntity formato) {
+    public Resultado cambiarEnFormulacion() {
         return new Resultado(false, "Un formato A rechazado no puede cambiar a en formulación");
     }
     

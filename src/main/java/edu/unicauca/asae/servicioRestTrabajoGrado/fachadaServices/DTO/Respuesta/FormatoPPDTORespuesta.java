@@ -13,12 +13,12 @@ public class FormatoPPDTORespuesta extends FormatoDTORespuesta {
     private String asesor;
     private String cartaAceptacion;
 
-    public FormatoPPDTORespuesta() {
-    }
-
     public FormatoPPDTORespuesta(Integer id, Date fecha, EnumEstado estado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String asesor, String cartaAceptacion) {
         super(id, fecha, estado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
         this.asesor = asesor;
         this.cartaAceptacion = cartaAceptacion;
+    }
+
+    public FormatoPPDTORespuesta() {
     }
 }

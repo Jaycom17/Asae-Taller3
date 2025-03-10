@@ -3,9 +3,9 @@ package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estad
 import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.FormatoEntity;
 
 public interface IEstado {
-    Resultado cambiarEnFormulacion(FormatoEntity formato);
-    Resultado cambiarEnEvaluacion(FormatoEntity formato);
-    Resultado cambiarPorCorregir(FormatoEntity formato);
-    Resultado cambiarAprobado(FormatoEntity formato);
-    Resultado cambiarRechazado(FormatoEntity formato);
+    Resultado cambiarEnFormulacion();
+    Resultado cambiarEnEvaluacion();
+    Resultado cambiarPorCorregir();
+    Resultado cambiarAprobado();
+    Resultado cambiarRechazado();
 }

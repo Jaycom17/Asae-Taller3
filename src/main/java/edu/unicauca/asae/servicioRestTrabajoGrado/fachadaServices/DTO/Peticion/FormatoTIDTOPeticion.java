@@ -10,10 +10,6 @@ import lombok.Setter;
 public class FormatoTIDTOPeticion extends FormatoDTOPeticion {
     private String segundoEstudiante;
 
-
-    public FormatoTIDTOPeticion() {
-    }
-
     
     public FormatoTIDTOPeticion(String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String segundoEstudiante) {
         super(titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);

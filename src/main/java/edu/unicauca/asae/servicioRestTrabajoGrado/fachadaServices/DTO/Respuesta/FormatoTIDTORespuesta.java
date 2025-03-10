@@ -12,11 +12,12 @@ import lombok.Setter;
 public class FormatoTIDTORespuesta extends FormatoDTORespuesta {
     private String segundoEstudiante;
 
-    public FormatoTIDTORespuesta() {
-    }
 
     public FormatoTIDTORespuesta(Integer id, Date fecha, EnumEstado estado, String titulo, String objetivoGeneral, String directorDelTrabajo, ArrayList<String> objetivos, String primerEstudiante, String segundoEstudiante) {
         super(id, fecha, estado, titulo, objetivoGeneral, directorDelTrabajo, objetivos, primerEstudiante);
         this.segundoEstudiante = segundoEstudiante;
+    }
+
+    public FormatoTIDTORespuesta() {
     }
 }

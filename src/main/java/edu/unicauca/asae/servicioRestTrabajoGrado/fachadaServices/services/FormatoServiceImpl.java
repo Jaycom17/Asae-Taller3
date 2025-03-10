@@ -1,5 +1,6 @@
 package edu.unicauca.asae.servicioRestTrabajoGrado.fachadaServices.services;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -45,8 +46,13 @@ public class FormatoServiceImpl implements IFormatoService {
 			formatos = List.of();
 		} else {
 			Collection<FormatoEntity> formatosEntities = formatosEntitiesRes.get();
-			formatos = this.modelMapper.map(formatosEntities, new TypeToken<List<FormatoDTORespuesta>>() {
-			}.getType());
+			formatos = formatosEntities.stream().map(formato -> {
+                if (formato instanceof FormatoPPEntity) {
+                    return this.modelMapper.map(formato, FormatoPPDTORespuesta.class);
+                } else {
+                    return this.modelMapper.map(formato, FormatoTIDTORespuesta.class);
+                }
+            }).toList();
 		}
 		return formatos;
     }
@@ -59,7 +65,7 @@ public class FormatoServiceImpl implements IFormatoService {
 
         if (formatoEntityRes.isPresent()) {
             FormatoEntity formatoEntity = formatoEntityRes.get();
-            formato = this.modelMapper.map(formatoEntity, FormatoDTORespuesta.class);
+            formato = formatoEntity instanceof FormatoPPEntity ? this.modelMapper.map(formatoEntity, FormatoPPDTORespuesta.class) : this.modelMapper.map(formatoEntity, FormatoTIDTORespuesta.class);
         }
 
         return formato;
@@ -94,16 +100,13 @@ public class FormatoServiceImpl implements IFormatoService {
         if (formatoEntityRes.isPresent()) {
             FormatoEntity formatoEntity = formatoEntityRes.get();
 
-            System.out.println("hola");
 
             formatoEntity.setTitulo(formato.getTitulo());
             formatoEntity.setObjetivoGeneral(formato.getObjetivoGeneral());
             formatoEntity.setDirectorDelTrabajo(formato.getDirectorDelTrabajo());
             formatoEntity.setObjetivos(formato.getObjetivos());
             formatoEntity.setPrimerEstudiante(formato.getPrimerEstudiante());
-            System.out.println("hola");
 
-            //TODO: revisar
             if(formato instanceof FormatoPPDTOPeticion){
                 ((FormatoPPEntity) formatoEntity).setAsesor(((FormatoPPDTOPeticion) formato).getAsesor());
                 ((FormatoPPEntity) formatoEntity).setCartaAceptacion(((FormatoPPDTOPeticion) formato).getCartaAceptacion());
@@ -112,12 +115,11 @@ public class FormatoServiceImpl implements IFormatoService {
             }
 
             
-            System.out.println("hola");
 
             formatoActualizado = this.formatoRepository.update(id, formatoEntity).get();
         }
 
-        return this.modelMapper.map(formatoActualizado, FormatoDTORespuesta.class);
+        return formato instanceof FormatoPPDTOPeticion ? this.modelMapper.map(formatoActualizado, FormatoPPDTORespuesta.class) : this.modelMapper.map(formatoActualizado, FormatoTIDTORespuesta.class);
     }
 
     @Override
@@ -135,19 +137,19 @@ public class FormatoServiceImpl implements IFormatoService {
 
             switch (state) {
                 case EN_FORMULACION:
-                    cambio = formato.getEstado().cambiarEnFormulacion(formatoActualizado);
+                    cambio = formato.getEstado().cambiarEnFormulacion();
                     break;
                 case EN_EVALUACION:
-                    cambio = formato.getEstado().cambiarEnEvaluacion(formatoActualizado);
+                    cambio = formato.getEstado().cambiarEnEvaluacion();
                     break;
                 case POR_CORREGIR:
-                    cambio = formato.getEstado().cambiarPorCorregir(formatoActualizado);
+                    cambio = formato.getEstado().cambiarPorCorregir();
                     break;
                 case APROBADO:
-                    cambio = formato.getEstado().cambiarAprobado(formatoActualizado);
+                    cambio = formato.getEstado().cambiarAprobado();
                     break;
                 case RECHAZADO:
-                    cambio = formato.getEstado().cambiarRechazado(formatoActualizado);
+                    cambio = formato.getEstado().cambiarRechazado();
                     break;
                 default:
                     break;
@@ -174,8 +176,13 @@ public class FormatoServiceImpl implements IFormatoService {
             formatos = List.of();
         } else {
             Collection<FormatoEntity> formatosEntities = formatosEntitiesRes.get();
-            formatos = this.modelMapper.map(formatosEntities, new TypeToken<List<FormatoDTORespuesta>>() {
-            }.getType());
+            formatos = new ArrayList<>(formatosEntities.stream().map(formato -> {
+                if (formato instanceof FormatoPPEntity) {
+                    return this.modelMapper.map(formato, FormatoPPDTORespuesta.class);
+                } else {
+                    return this.modelMapper.map(formato, FormatoTIDTORespuesta.class);
+                }
+            }).toList());
 
             formatos.removeIf(formato -> formato.getFecha().before(java.sql.Date.valueOf(fechaInicio)) || formato.getFecha().after(java.sql.Date.valueOf(fechaFin)));
         }

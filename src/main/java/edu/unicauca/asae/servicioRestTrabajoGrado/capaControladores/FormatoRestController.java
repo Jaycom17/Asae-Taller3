@@ -38,7 +38,7 @@ public class FormatoRestController {
 		return objFormato;
 	}
 
-	@GetMapping("formato/{fechaInicio}/{fechaFin}")
+	@GetMapping("formato/betweenDates/{fechaInicio}/{fechaFin}")
 	public List<FormatoDTORespuesta> getBetweenDates(@PathVariable String fechaInicio,
 			@PathVariable String fechaFin) {
 		return formatoService.getBetweenDates(fechaInicio, fechaFin);
@@ -55,7 +55,7 @@ public class FormatoRestController {
 		return formatoService.update(id, formato);
 	}
 
-	@PatchMapping("/formato/{id}/{estado}")
+	@PatchMapping("/formato/changestate/{id}/{estado}")
 	public Boolean cambiarEstado(@PathVariable Integer id, @PathVariable EnumEstado estado) {
 		return formatoService.changeState(id, estado);
 	}
