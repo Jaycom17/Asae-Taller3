@@ -2,9 +2,6 @@ package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models;
 
 import java.util.Date;
 import java.util.ArrayList;
-
-import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.EstadoEnFormulacion;
-import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados.IEstado;
 import lombok.Getter;
 import lombok.Setter;
 

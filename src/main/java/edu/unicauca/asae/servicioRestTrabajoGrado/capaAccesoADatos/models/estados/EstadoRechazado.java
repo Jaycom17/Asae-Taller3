@@ -1,6 +1,5 @@
 package edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.estados;
 
-import edu.unicauca.asae.servicioRestTrabajoGrado.capaAccesoADatos.models.FormatoEntity;
 
 public class EstadoRechazado implements IEstado {
 
