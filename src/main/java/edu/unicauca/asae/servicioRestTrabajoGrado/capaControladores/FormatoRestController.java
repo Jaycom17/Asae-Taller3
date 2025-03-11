@@ -56,7 +56,7 @@ public class FormatoRestController {
 	}
 
 	@PatchMapping("/formato/changestate/{id}/{estado}")
-	public Boolean cambiarEstado(@PathVariable Integer id, @PathVariable EnumEstado estado) {
+	public String cambiarEstado(@PathVariable Integer id, @PathVariable EnumEstado estado) {
 		return formatoService.changeState(id, estado);
 	}
 }

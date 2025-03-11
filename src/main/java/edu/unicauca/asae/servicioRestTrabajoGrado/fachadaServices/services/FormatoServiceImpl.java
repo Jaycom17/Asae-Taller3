@@ -122,8 +122,8 @@ public class FormatoServiceImpl implements IFormatoService {
     }
 
     @Override
-    public boolean changeState(Integer id, EnumEstado state) {
-        boolean result = false;
+    public String changeState(Integer id, EnumEstado state) {
+        String result = "";
         FormatoEntity formatoActualizado = null;
         Optional<FormatoEntity> formatoEntityRes = this.formatoRepository.findById(id);
 
@@ -154,12 +154,19 @@ public class FormatoServiceImpl implements IFormatoService {
                     break;
             }
 
+            result = cambio.mensaje();
+
             if (cambio.cambioPermitido()) {
-                result = this.formatoRepository.changeState(id, state);
+                boolean auxResult = this.formatoRepository.changeState(id, state);
+
+                if (!auxResult) {
+                    result = "Ha ocurrido un error al cambiar el estado";
+                }
             }
 
+
         }else {
-            result = false;
+            result = "No se encontró el formato";
         }
 
         return result;

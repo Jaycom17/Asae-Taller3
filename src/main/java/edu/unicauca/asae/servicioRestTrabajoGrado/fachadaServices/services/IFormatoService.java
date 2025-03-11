@@ -11,6 +11,6 @@ public interface IFormatoService {
     public FormatoDTORespuesta getById(Integer id);
     public FormatoDTORespuesta save(FormatoDTOPeticion formato);
     public FormatoDTORespuesta update(Integer id, FormatoDTOPeticion formato);
-    public boolean changeState(Integer id, EnumEstado state);
+    public String changeState(Integer id, EnumEstado state);
     public List<FormatoDTORespuesta> getBetweenDates(String fechaInicio, String fechaFin);
 }
